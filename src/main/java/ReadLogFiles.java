@@ -14,7 +14,7 @@ public class ReadLogFiles {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		
-		String destinationFile = "C:\\Users\\mjibran\\Downloads\\Logs\\Processed\\Apr 17 - May 28\\Apr17_May28.csv"; // Enter Destination file to store all the logs
+		String destinationFile = "C:\\Users\\mjibran\\Downloads\\Logs\\Processed\\Oct 23\\Sep-Oct2018.csv"; // Enter Destination file to store all the logs
 		
 		File fle = new File(destinationFile);
 		if(fle.delete())
@@ -22,7 +22,7 @@ public class ReadLogFiles {
 			System.out.println("File Deleted");
 		}
 //		String folderLoc = "C:\\Users\\mjibran\\Desktop\\Org\\Prod_logs";
-		String sourceFolder = "C:\\Users\\mjibran\\Downloads\\Logs\\Raw\\Apr 17 - May 28";
+		String sourceFolder = "C:\\Users\\mjibran\\Desktop\\logs\\Prod\\Prod logs (1)\\";
 		
 		File folder = new File(sourceFolder);
 		File[] listOfFiles = folder.listFiles();
@@ -109,22 +109,14 @@ public class ReadLogFiles {
 				dateTime = dateTime.replace(date, "");
 				
 				time = dateTime;
-//				time = dateTime.substring(0, 9).trim();
-//				dateTime = dateTime.replace(time, "");
-				
-//				time = getTime(time);
-//				System.out.println("Sub:" + subString);
 				
 				module = subString.substring(0, subString.indexOf("] ")+1).trim();
 				subString = subString.replace(module, "").trim();
-//				System.out.println("Sub:" + subString);
 				
 				subString = subString.trim();
 				type = subString.substring(0, subString.indexOf(" ")).trim();
 				subString = subString.replace(type, "");
 				curCode = getInfoCode(type.trim());
-//				System.out.println("Sub:" + subString);
-//				System.out.println("type:" + type);
 				
 				source = subString.substring(0, subString.indexOf('-')).trim();
 				subString = subString.replace(source, "");
